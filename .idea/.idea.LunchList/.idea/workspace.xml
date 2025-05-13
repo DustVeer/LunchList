@@ -1,77 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="a9da953a-690b-4386-a47f-73f5aeadf2e7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LunchList/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LunchList/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LunchList/LunchList.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/LunchList.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LunchList/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LunchList/obj/Debug/net8.0/LunchList.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/obj/Debug/net8.0/LunchList.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LunchList/obj/Debug/net8.0/LunchList.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/obj/Debug/net8.0/LunchList.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LunchList/obj/Debug/net8.0/LunchList.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/obj/Debug/net8.0/LunchList.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LunchList/obj/Debug/net8.0/LunchList.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/obj/Debug/net8.0/LunchList.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LunchList/obj/LunchList.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/obj/LunchList.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LunchList/obj/LunchList.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/obj/LunchList.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LunchList/obj/LunchList.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/obj/LunchList.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LunchList/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LunchList/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LunchList/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LunchList/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/obj/rider.project.restore.info" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="DpaMonitoringSettings">
-    <option name="autoShow" value="false" />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;DustVeer&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/DustVeer/LunchList.git&quot;,
-    &quot;accountId&quot;: &quot;6ad26688-6ac0-4588-ad4a-341deb86e02e&quot;
-  }
-}</component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="Toolset" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 3
-}</component>
-  <component name="ProjectId" id="2x2CmdZLKSCWhUmR1MiwcUwK0ma" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.LunchList: http.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Development&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.LunchList: http">
     <configuration name="LunchList: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/LunchList/LunchList.csproj" />
@@ -103,55 +35,5 @@
         <option name="Build" />
       </method>
     </configuration>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="a9da953a-690b-4386-a47f-73f5aeadf2e7" name="Changes" comment="" />
-      <created>1747126942952</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1747126942952</updated>
-      <workItem from="1747126944278" duration="1930000" />
-      <workItem from="1747133523236" duration="1234000" />
-      <workItem from="1747134993255" duration="1520000" />
-    </task>
-    <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
-  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
-  <component name="UnknownFeatures">
-    <option featureType="dependencySupport" implementationName="executable:docker" />
-    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.Identity.Client" />
-    <option featureType="dependencySupport" implementationName="executable:kubectl" />
-    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore.Abstractions" />
-    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore.Relational" />
-    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/Development" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

@@ -1,0 +1,25 @@
+﻿@model List<RetailerProduct>
+
+<h2>Grocery Items</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Retailer Product Id</th>
+            <th>Quantity</th>
+            <th>Is Checked</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Retailer</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
