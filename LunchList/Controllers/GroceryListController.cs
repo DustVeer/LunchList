@@ -1,7 +1,9 @@
 ﻿using LunchList.Data;
 using LunchList.Models;
+using LunchList.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LunchList.Controllers
 {
@@ -15,10 +17,43 @@ namespace LunchList.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? selectedGroceryListId)
         {
-            var retailers = _context.RetailersProducts.ToList();
-            return View(retailers);
+
+            ViewBag.GroceryLists = new List<SelectListItem>
+            {
+                new SelectListItem { Value = "1", Text = "List 1" },
+                new SelectListItem { Value = "2", Text = "List 2" },
+                new SelectListItem { Value = "3", Text = "List 3" }
+            };
+
+            // Optionally set a default value if none is provided.
+            int groceryListId = selectedGroceryListId ?? 3;
+
+            var groceryList = await _context.Set<GroceryItemDTO>()
+                .FromSqlInterpolated($@"
+                    SELECT 
+                        gi.Id, 
+                        gi.Retailer_Product_Id, 
+                        gi.Quantity, 
+                        CASE 
+                            WHEN gi.Is_Checked = 1 THEN CAST(1 AS bit) 
+                            ELSE CAST(0 AS bit) 
+                        END AS Is_Checked_Bool,
+                        rp.Name AS RetailerProductName
+                    FROM grocery_items gi
+                    INNER JOIN retailer_products rp ON gi.Retailer_Product_Id = rp.Id
+                    WHERE gi.Id IN (
+                        SELECT gli.grocery_item_id
+                        FROM grocery_list_items gli
+                        WHERE gli.grocery_list_id = {groceryListId}
+                    )")
+                .ToListAsync();
+
+            // Pass the selected id to the view to maintain state in the dropdown.
+            ViewBag.SelectedGroceryListId = groceryListId;
+
+            return View(groceryList);
         }
 
         // GET: GroceryLists/Details/5

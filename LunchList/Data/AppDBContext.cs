@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using LunchList.DTO;
 
 namespace LunchList.Data
 {
@@ -19,6 +20,7 @@ namespace LunchList.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<GroceryItem>().ToTable("grocery_items");
+            modelBuilder.Entity<GroceryItemDTO>().HasNoKey();
 
             modelBuilder.Entity<GroceryList>().ToTable("grocery_lists");
             modelBuilder.Entity<Retailer>().ToTable("retailers");
@@ -28,7 +30,7 @@ namespace LunchList.Data
             modelBuilder.Entity<GroceryItem>()
                 .HasOne(gi => gi.RetailerProduct)
                 .WithMany()
-                .HasForeignKey(gi => gi.RetailerProductId);
+                .HasForeignKey(gi => gi.Retailer_Product_Id);
 
             // Foreign key: Retailers_products → Retailers
             modelBuilder.Entity<RetailerProduct>()

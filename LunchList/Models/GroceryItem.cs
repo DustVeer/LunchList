@@ -9,11 +9,11 @@ namespace LunchList.Models
         [Key]
         public int Id { get; set; }
 
-        public int RetailerProductId { get; set; } // Foreign key
+        public int Retailer_Product_Id { get; set; } // Foreign key
 
         public int Quantity { get; set; }
 
-        public bool IsChecked { get; set; }
+        public bool Is_Checked_Bool { get; set; }
 
         public RetailerProduct RetailerProduct { get; set; } // Navigation property
     }

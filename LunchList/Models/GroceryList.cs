@@ -10,7 +10,7 @@ namespace LunchList.Models
         [MaxLength(100)]
         public string Name { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime Created_At { get; set; }
 
         public List<GroceryItem> Items { get; set; }
     }

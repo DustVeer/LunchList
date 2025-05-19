@@ -1,11 +1,18 @@
-﻿@model List<RetailerProduct>
+﻿@using LunchList.DTO;
+@model List<GroceryItemDTO>
+
+<form method="get" action="">
+    <label for="selectedGroceryListId">Select Grocery List:</label>
+    @Html.DropDownList("selectedGroceryListId", (IEnumerable<SelectListItem>)ViewBag.GroceryLists, new { @class = "form-control" })
+    <button type="submit">Filter</button>
+</form>
 
 <h2>Grocery Items</h2>
 <table class="table">
     <thead>
         <tr>
             <th>Id</th>
-            <th>Retailer Product Id</th>
+            <th>Product Name</th>
             <th>Quantity</th>
             <th>Is Checked</th>
         </tr>
@@ -14,10 +21,10 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Name</td>
-                <td>@item.Price</td>
-                <td>@item.Retailer</td>
-
+                <td>@item.Id</td>
+                <td>@item.RetailerProductName</td>
+                <td>@item.Quantity</td>
+                <td>@item.Is_Checked_Bool</td>
             </tr>
         }
     </tbody>
