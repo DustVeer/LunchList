@@ -24,7 +24,7 @@
                 <td>@item.Id</td>
                 <td>@item.RetailerProductName</td>
                 <td>@item.Quantity</td>
-                <td>@item.Is_Checked_Bool</td>
+                <td> <input type="checkbox" disabled @(item.Is_Checked_Bool ? "checked" : "") /> </td>
             </tr>
         }
     </tbody>

@@ -1,26 +1,29 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using LunchList.Models;
+using LunchList.Data;
+using LunchList.DTO;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace LunchList.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly AppDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    // Constructor to inject AppDbContext
+    public HomeController(AppDbContext context)
     {
-        _logger = logger;
+        _context = context;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
-    }
+        var products = await _context.RetailersProducts
+            .ToListAsync();
 
-    public IActionResult Privacy()
-    {
-        return View();
+        return View(products);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
