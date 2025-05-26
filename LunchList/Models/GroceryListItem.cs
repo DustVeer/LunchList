@@ -1,13 +1,11 @@
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace LunchList.Models;
-
-public class GroceryListItem
+namespace LunchList.Models
 {
-    public int GroceryListId { get; set; }
+    public class GroceryListItem
+    {
+        public int GroceryListId { get; set; }
+        public GroceryList GroceryList { get; set; }
 
-    public int GroceryItemId { get; set; }
-
-    public GroceryList GroceryList { get; set; }
-    public GroceryItem GroceryItem { get; set; }
+        public int GroceryItemId { get; set; }
+        public GroceryItem GroceryItem { get; set; }
+    }
 }

@@ -22,30 +22,28 @@ public class ProductsController(AppDbContext context) : Controller
     [HttpPost]
     public async Task<IActionResult> AddToList(int? id)
     {
-
         
-        var retailerProduct = await context.RetailersProducts.FindAsync(id);
-        
-        // Step 1: Create the grocery item
-        var newItem = new GroceryItem
+        // 1. Create new grocery item
+        var item = new GroceryItem
         {
+            Retailer_Product_Id = id ?? 401,
             Quantity = 1,
-            RetailerProduct = retailerProduct
+            Is_Checked = false
         };
 
-        context.GroceryItems.Add(newItem);
-        await context.SaveChangesAsync(); // Save first to generate ID
+        context.GroceryItemEntities.Add(item);
+        await context.SaveChangesAsync(); // must save to generate item.Id
 
-        // Step 2: Create the link in GroceryListItems
+        // 2. Add to an existing grocery list
         var listItem = new GroceryListItem
         {
-            GroceryListId = 2,
-            GroceryItemId = newItem.Id
+            GroceryListId =  1, // Use default ID if null
+            GroceryItemId = item.Id
         };
 
         context.GroceryListItems.Add(listItem);
         await context.SaveChangesAsync();
-        
+
         return RedirectToAction("Index");
     }
     
