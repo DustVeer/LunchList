@@ -9,11 +9,10 @@ namespace LunchList.Data
     public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
         public DbSet<GroceryList> GroceryLists { get; set; }  // Make sure this is present
-<<<<<<< Updated upstream
-=======
+
         public DbSet<GroceryItem> GroceryItems { get; set; }
         public DbSet<GroceryListItem> GroceryListItems { get; set; }
->>>>>>> Stashed changes
+
         public DbSet<Retailer> Retailers { get; set; }
         public DbSet<RetailerProduct> RetailersProducts { get; set; }
 
@@ -27,15 +26,13 @@ namespace LunchList.Data
             modelBuilder.Entity<Retailer>().ToTable("retailers");
             modelBuilder.Entity<RetailerProduct>().ToTable("retailer_products");
 
-<<<<<<< Updated upstream
-=======
+
             // Foreign key: GroceryItem → Retailers_products
             modelBuilder.Entity<GroceryItem>()
                 .HasOne(gi => gi.RetailerProduct)
                 .WithMany()
                 .HasForeignKey(gi => gi.Retailer_Product_Id);
            
->>>>>>> Stashed changes
 
             // Foreign key: Retailers_products → Retailers
             modelBuilder.Entity<RetailerProduct>()
