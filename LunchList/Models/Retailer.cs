@@ -4,7 +4,6 @@ namespace LunchList.Models
 {
     public class Retailer
     {
-        [Key]
         public int Id { get; set; }
 
         [MaxLength(100)]

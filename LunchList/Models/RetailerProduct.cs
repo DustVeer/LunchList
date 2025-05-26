@@ -5,7 +5,6 @@ namespace LunchList.Models
 {
     public class RetailerProduct
     {
-        [Key]
         public int Id { get; set; }
         [Column("retailer_id")]
         public int? RetailerId { get; set; }

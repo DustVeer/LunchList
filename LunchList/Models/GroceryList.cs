@@ -10,8 +10,14 @@ namespace LunchList.Models
 
         public DateTime Created_At { get; set; }
 
+<<<<<<< Updated upstream
         public Byte Is_Done { get; set; }
 
 
+=======
+        public List<GroceryItem> Items { get; set; }
+        
+        public ICollection<GroceryListItem> GroceryListItems { get; set; }
+>>>>>>> Stashed changes
     }
 }
