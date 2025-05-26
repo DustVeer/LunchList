@@ -13,24 +13,17 @@ namespace LunchList.Data
         { }
 
         public DbSet<GroceryList> GroceryLists { get; set; }  // Make sure this is present
-        public DbSet<GroceryItem> GroceryItems { get; set; }
         public DbSet<Retailer> Retailers { get; set; }
         public DbSet<RetailerProduct> RetailersProducts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<GroceryItem>().ToTable("grocery_items");
             modelBuilder.Entity<GroceryItemDTO>().HasNoKey();
 
             modelBuilder.Entity<GroceryList>().ToTable("grocery_lists");
             modelBuilder.Entity<Retailer>().ToTable("retailers");
             modelBuilder.Entity<RetailerProduct>().ToTable("retailer_products");
 
-            // Foreign key: GroceryItem → Retailers_products
-            modelBuilder.Entity<GroceryItem>()
-                .HasOne(gi => gi.RetailerProduct)
-                .WithMany()
-                .HasForeignKey(gi => gi.Retailer_Product_Id);
 
             // Foreign key: Retailers_products → Retailers
             modelBuilder.Entity<RetailerProduct>()
