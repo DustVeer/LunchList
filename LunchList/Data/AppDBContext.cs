@@ -9,7 +9,7 @@ namespace LunchList.Data
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options) { }
 
-        public DbSet<GroceryItem> GroceryItemEntities { get; set; }
+        public DbSet<GroceryItem> GroceryItems { get; set; }
         public DbSet<GroceryListItem> GroceryListItems { get; set; }
         public DbSet<GroceryList> GroceryLists { get; set; }
         public DbSet<Retailer> Retailers { get; set; }
