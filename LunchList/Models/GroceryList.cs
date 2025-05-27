@@ -10,8 +10,10 @@ namespace LunchList.Models
 
         public DateTime Created_At { get; set; }
 
+
         public Byte Is_Done { get; set; }
 
+        public ICollection<GroceryListItem> GroceryListItems { get; set; }
 
     }
 }
