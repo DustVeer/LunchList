@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="776efa4a-5df7-4b16-86b9-5a42904f968f" name="Changes" comment="Bij GroceryList.cs zat een verwijzing naar GroceryItem hierdoor maakte EF een nieuw Id aan voor een of andere reden. xD" />
+    <list default="true" id="776efa4a-5df7-4b16-86b9-5a42904f968f" name="Changes" comment="Bij GroceryList.cs zat een verwijzing naar GroceryItem hierdoor maakte EF een nieuw Id aan voor een of andere reden. xD">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.LunchList/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LunchList/Controllers/ProductsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LunchList/Models/GroceryItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LunchList/Models/GroceryListItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LunchList/Views/Products/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LunchList/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LunchList/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/Attendance.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/Attendance.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LunchList/Controllers/GroceryListController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/Controllers/GroceryListController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LunchList/DTO/GroceryItemDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/DTO/GroceryItemDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LunchList/Data/AppDBContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/Data/AppDBContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LunchList/Models/GroceryList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/Models/GroceryList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LunchList/Models/Retailer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/Models/Retailer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LunchList/Models/RetailerProduct.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/Models/RetailerProduct.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LunchList/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LunchList/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LunchList/Views/GroceryList/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/Views/GroceryList/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LunchList/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LunchList/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LunchList/Views/Shared/_Layout.cshtml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +49,10 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/98887d204f3ed1b0b1799380a6d0325a2529f4a15029f0c4b90804ed6482/InternalEntityTypeBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/dustinveerdonk/RiderProjects/LunchList/LunchList/Controllers/ProductsController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/dustinveerdonk/RiderProjects/LunchList/LunchList/Controllers/ProductsController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/dustinveerdonk/RiderProjects/LunchList/LunchList/Views/GroceryList/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/dustinveerdonk/RiderProjects/LunchList/LunchList/Views/GroceryList/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../LunchList_OLD/LunchList/Views/LunchList/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -41,18 +64,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.LunchList: http.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;TestingEF&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.LunchList: http.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.LunchList: http">
     <configuration name="LunchList: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/LunchList/LunchList.csproj" />
