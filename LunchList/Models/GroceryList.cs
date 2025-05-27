@@ -13,9 +13,6 @@ namespace LunchList.Models
 
         public Byte Is_Done { get; set; }
 
-
-        public List<GroceryItem> Items { get; set; }
-        
         public ICollection<GroceryListItem> GroceryListItems { get; set; }
 
     }
