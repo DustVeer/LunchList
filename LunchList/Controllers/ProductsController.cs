@@ -93,7 +93,7 @@ public class ProductsController : Controller
             ");
         }
 
-        return RedirectToAction("Index");
+        return RedirectToAction("Index","GroceryList");
     }
 
 }
