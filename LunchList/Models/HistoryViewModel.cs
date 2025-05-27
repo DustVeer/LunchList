@@ -6,5 +6,6 @@ namespace LunchList.Models
     {
         public List<GroceryItemDTO> GroceryItems { get; set; }
         public List<GroceryList> GroceryLists { get; set; }
+        public List<RetailerProduct> RetailerProducts { get; set; }
     }
 }

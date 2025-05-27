@@ -64,10 +64,11 @@ namespace LunchList.Controllers
             return View(viewModel);
         }
 
+        [HttpPost]
         public async Task<IActionResult> SetDone(int? id)
         {
 
-            return View();
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
