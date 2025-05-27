@@ -8,7 +8,7 @@ namespace LunchList.DTO
         public int Id { get; set; }
         public int Retailer_Product_Id { get; set; }
         public int Quantity { get; set; }
-        public bool Is_Checked { get; set; }
+        public Byte Is_Checked { get; set; }
         public string RetailerProductName { get; set; }
 
     }

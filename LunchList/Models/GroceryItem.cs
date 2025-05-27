@@ -13,7 +13,7 @@ namespace LunchList.Models
 
         public int Quantity { get; set; }
 
-        public bool Is_Checked { get; set; } = false;
+        public Byte Is_Checked { get; set; } = 0;
 
         public RetailerProduct RetailerProduct { get; set; } // Navigation property
         public ICollection<GroceryListItem> GroceryListItems { get; set; }

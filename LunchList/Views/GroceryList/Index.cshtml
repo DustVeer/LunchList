@@ -1,17 +1,14 @@
 ﻿@using LunchList.DTO;
 @model HistoryViewModel
 
-
 <!-- Filter form based on Grocery Lists -->
 <form method="get" action="">
     <label for="selectedGroceryListId">Select Grocery List:</label>
     @Html.DropDownList("selectedGroceryListId", (IEnumerable<SelectListItem>)ViewBag.GroceryListSelect, new { @class = "form-control" })
-    <button type="submit">Filter</button>
+    <button type="submit" class="btn btn-primary">Select</button>
 </form>
 
-
 <!-- Form to add a new Grocery List -->
-<!-- Notice: Avoid nesting forms. You may place a separate form outside or handle submission via AJAX -->
 <form method="POST" asp-action="Add">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#popupModal">
         Add new list
@@ -26,7 +23,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- This inner form is optional; you can also remove it if the outer form handles the submission -->
                     <div class="mb-3">
                         <label for="insertField" class="form-label">Your Input:</label>
                         <input type="text" class="form-control" id="insertField" name="name" placeholder="Enter new name">
@@ -34,7 +30,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <!-- This button submits the outer form -->
                     <button type="submit" class="btn btn-primary" id="submitPopup">Submit</button>
                 </div>
             </div>
@@ -59,9 +54,20 @@
                 <td>@item.Id</td>
                 <td>@item.RetailerProductName</td>
                 <td>@item.Quantity</td>
-                <td> <input type="checkbox" disabled @(item.Is_Checked ? "checked" : "") /> </td>
+                <td>
+                    <form method="post" asp-action="CheckItem" style="display:inline;">
+                        <!-- Pass the item id -->
+                        <input type="hidden" name="id" value="@item.Id" />
+
+                        <!-- Render a checkbox.
+                             If item.Is_Checked equals 1, mark it as checked.
+                             Auto-submit the form on change. -->
+                        <input type="checkbox" name="is_checked" value="1"
+                        @(item.Is_Checked == 1 ? "checked" : "")
+                               onchange="this.form.submit();" />
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
 </table>
-

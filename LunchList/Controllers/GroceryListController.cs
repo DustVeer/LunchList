@@ -68,7 +68,34 @@ namespace LunchList.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CheckItem(int id)
+        {
+            // Execute a raw SQL update to set is_checked to 1 for the given item id.
+            await _context.Database.ExecuteSqlInterpolatedAsync($@"
+              UPDATE grocery_items
+              SET is_checked = 1
+              WHERE id = {id}
+                ");
+
+            return RedirectToAction("Index");
+        }
+
+        //[HttpPost]
+        //public async Task<IActionResult> FinishList(int id)
+        //{
+        //    // Execute a raw SQL update to set is_checked to 1 for the given item id.
+        //    await _context.Database.ExecuteSqlInterpolatedAsync($@"
+        //      UPDATE grocery_lists
+        //      SET is_done = 1
+        //      WHERE id = {id}
+        //        ");
+
+        //    return RedirectToAction("Index");
+        //}
     }
+
 }
 
      
