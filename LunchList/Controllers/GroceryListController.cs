@@ -17,11 +17,18 @@ namespace LunchList.Controllers
             _context = context;
         }
 
+
+
         public async Task<IActionResult> Index(int? selectedGroceryListId)
         {
             var groceryLists = await _context.GroceryLists.ToListAsync();
 
             int groceryListId = selectedGroceryListId ?? groceryLists.LastOrDefault()?.Id ?? 2;
+
+            var selectedList = groceryLists.FirstOrDefault(gl => gl.Id == groceryListId);
+            // Set ViewBag.IsDone to true if the selected list is marked as done (is_done == 1), false otherwise.
+            ViewBag.IsDone = (selectedList != null && selectedList.Is_Done == 1);
+
 
             ViewBag.GroceryListSelect = groceryLists.Select(gl => new SelectListItem
             {
@@ -55,6 +62,12 @@ namespace LunchList.Controllers
             ViewBag.SelectedGroceryListId = groceryListId;
 
             return View(viewModel);
+        }
+
+        public async Task<IActionResult> SetDone(int? id)
+        {
+
+            return View();
         }
 
         [HttpPost]
