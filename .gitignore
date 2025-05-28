@@ -5,8 +5,8 @@
 
 # User-specific files
 *.rsuser
-*.DS_Store
-*.xml
+.DS_Store
+.xml
 *.suo
 *.user
 *.userosscache
@@ -20,7 +20,8 @@ mono_crash.*
 
 # Build results
 /.idea
-/LunchList/Properties
+Properties/
+
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
