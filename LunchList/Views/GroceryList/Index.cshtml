@@ -1,26 +1,8 @@
-﻿@using LunchList.DTO;
-@model HistoryViewModel
-
+﻿@model GroceryListViewModel
+@{
+   
+}
 <div class="container mt-4">
-    <!-- Grocery List Selection -->
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <h4 class="card-title">Select Grocery List</h4>
-            <form method="get" action="" class="d-flex gap-3">
-                @Html.DropDownList("selectedGroceryListId", (IEnumerable<SelectListItem>)ViewBag.GroceryListSelect, new { @class = "form-select" })
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-check-circle"></i> Select
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Add a New Grocery List -->
-    <div class="mt-4 text-end">
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#popupModal">
-            <i class="fas fa-plus-circle"></i> Add New List
-        </button>
-    </div>
 
     <!-- Modal for Adding Grocery List -->
     <div class="modal fade" id="popupModal" tabindex="-1" aria-labelledby="popupModalLabel" aria-hidden="true">
@@ -47,52 +29,50 @@
             </div>
         </div>
     </div>
+    
+    <h2>@Model.Name</h2>
 
     <!-- Grocery Items -->
     <div class="card mt-4 shadow-sm">
         <div class="card-body">
             <h4 class="card-title">
                 Grocery Items
-                @if (ViewBag.IsDone)
-                {
-                    <span class="text-success ms-2"><i class="fas fa-check-circle">&#x2713</i></span>
-                }
             </h4>
 
             <table class="table table-hover mt-3">
                 <thead class="table-dark">
-                    <tr>
-                        <th>Id</th>
-                        <th>Product Name</th>
-                        <th>Quantity</th>
-                        <th>Is Checked</th>
-                    </tr>
+                <tr>
+                    <th>Price</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Is Checked</th>
+                </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.GroceryItems)
-                    {
-                        <tr>
-                            <td>@item.Id</td>
-                            <td>@item.RetailerProductName</td>
-                            <td>@item.Quantity</td>
-                            <td>
-                                <form method="post" asp-action="CheckItem" style="display:inline;">
-                                    <input type="hidden" name="id" value="@item.Id" />
-                                    <input type="checkbox" name="is_checked" value="1"
-                                    @(item.Is_Checked == 1 ? "checked" : "")
-                                           onchange="this.form.submit();" @(ViewBag.IsDone ? "disabled" : "") />
-                                </form>
-
-                                <!-- Delete Button -->
-                                <form method="post" asp-action="DeleteItem" style="display:inline; margin-left: 10px;">
-                                    <input type="hidden" name="id" value="@item.Id" />
-                                    <button type="submit" class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    }
+                @foreach (var item in Model.GroceryListViewModelProducts)
+                {
+                    <tr>
+                        <td>@item.Price</td>
+                        <td>@item.ProductName</td>
+                        <td>@item.Quantity</td>
+                        <td>
+                            <form method="post" asp-action="CheckItem" style="display:inline;">
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <input type="checkbox" name="is_checked" value="1"
+                                       @(item.IsChecked ? "checked" : "")
+                                       onchange="this.form.submit();" />
+                            </form>
+                
+                            <!-- Delete Button -->
+                            <form method="post" asp-action="DeleteItem" style="display:inline; margin-left: 10px;">
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
                 </tbody>
             </table>
         </div>
@@ -108,3 +88,15 @@
         </form>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var shouldShowModal = '@TempData["ShowModal"]' === 'True';
+            if (shouldShowModal) {
+                var modal = new bootstrap.Modal(document.getElementById('popupModal'));
+                modal.show();
+            }
+        });
+    </script>
+}

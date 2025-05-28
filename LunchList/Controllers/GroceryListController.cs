@@ -19,57 +19,50 @@ namespace LunchList.Controllers
 
 
 
-        public async Task<IActionResult> Index(int? selectedGroceryListId)
+        public async Task<IActionResult> Index()
         {
-            var groceryLists = await _context.GroceryLists.ToListAsync();
+            
+            GroceryList? groceryList = await _context.GroceryLists
+                .FirstOrDefaultAsync(gl => gl.Is_Done == 0);
 
-            int groceryListId = selectedGroceryListId ?? groceryLists.LastOrDefault()?.Id ?? 2;
-
-            var selectedList = groceryLists.FirstOrDefault(gl => gl.Id == groceryListId);
-            // Set ViewBag.IsDone to true if the selected list is marked as done (is_done == 1), false otherwise.
-            ViewBag.IsDone = (selectedList != null && selectedList.Is_Done == 1);
-
-
-            ViewBag.GroceryListSelect = groceryLists.Select(gl => new SelectListItem
+            if (groceryList == null)
             {
-                Value = gl.Id.ToString(),
-                Text = gl.Name
-            }).ToList();
-
-            var groceryItems = await _context.Set<GroceryItemDTO>()
-                .FromSqlInterpolated($@"
-            SELECT 
-                gi.Id, 
-                gi.Retailer_Product_Id, 
-                gi.Quantity, 
-                gi.is_checked,      
-                rp.Name AS RetailerProductName
-            FROM grocery_items gi
-            INNER JOIN retailer_products rp ON gi.Retailer_Product_Id = rp.Id
-            WHERE gi.Id IN (
-                SELECT gli.grocery_item_id
-                FROM grocery_list_items gli
-                WHERE gli.grocery_list_id = {groceryListId}
-            )")
+                TempData["ShowModal"] = true;
+                return View();
+            }
+            
+            
+            
+            var products = await _context.GroceryListItems
+                .Where(gli => gli.GroceryListId == groceryList.Id)
+                .Include(gli => gli.GroceryItem)
+                .ThenInclude(gi => gi.RetailerProduct)
+                .Select(gli => new GroceryListViewModelProducts
+                {
+                    Id = gli.GroceryItem.Id,
+                    ProductName = gli.GroceryItem.RetailerProduct.Name,
+                    Price = gli.GroceryItem.RetailerProduct.Price,
+                    Quantity = gli.GroceryItem.Quantity,
+                    IsChecked = gli.GroceryItem.Quantity > 0,
+                })
                 .ToListAsync();
 
-            var viewModel = new HistoryViewModel
+            var model = new GroceryListViewModel()
             {
-                GroceryItems = groceryItems,
-                GroceryLists = groceryLists
+                Id = groceryList.Id,
+                Name = groceryList.Name,
+                GroceryListViewModelProducts = products,
             };
 
-            ViewBag.SelectedGroceryListId = groceryListId;
+            return View(model);
 
-            return View(viewModel);
         }
 
         [HttpPost]
         public async Task<IActionResult> SetDone(int? id)
         {
             
-            
-
+            TempData["ShowModal"] = true;
             return RedirectToAction("Index");
         }
 

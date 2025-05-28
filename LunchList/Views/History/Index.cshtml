@@ -1,0 +1,38 @@
+@model List<GroceryList>
+
+@{
+    ViewData["Title"] = "Grocery Lists";
+}
+
+<h2>Grocery Lists</h2>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Created</th>
+        <th>Done</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var list in Model)
+    {
+        <tr>
+            <td>@list.Id</td>
+            <td>@list.Name</td>
+            <td>@list.Created_At.ToString("yyyy-MM-dd")</td>
+            <td>
+                @if (list.Is_Done == 1)
+                {
+                    <span class="badge bg-success">Yes</span>
+                }
+                else
+                {
+                    <span class="badge bg-secondary">No</span>
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
