@@ -12,7 +12,7 @@ namespace LunchList.Models
         [MaxLength(100)]
         public string? Name { get; set; }
         [Column("price")]
-        public decimal? Price { get; set; }
+        public decimal PricePerProduct { get; set; }
 
         public Retailer? Retailer { get; set; }
     }

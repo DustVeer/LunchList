@@ -43,9 +43,10 @@
             <table class="table table-hover mt-3">
                 <thead class="table-dark">
                 <tr>
-                    <th>Price</th>
+                    <th>Price Per</th>
                     <th>Product Name</th>
                     <th>Quantity</th>
+                    <th>Price</th>
                     <th>Is Checked</th>
                 </tr>
                 </thead>
@@ -53,9 +54,10 @@
                 @foreach (var item in Model.GroceryListViewModelProducts)
                 {
                     <tr>
-                        <td>@item.RetailerProduct.Price</td>
+                        <td>€@item.RetailerProduct.PricePerProduct</td>
                         <td>@item.RetailerProduct.Name</td>
                         <td>@item.GroceryItem.Quantity</td>
+                        <td>€@item.PriceFormatted</td>
                         <td>
                             <form method="post" asp-action="CheckItem" style="display:inline;">
                                 <input type="hidden" name="id" value="@item.GroceryItem.Id" />
@@ -77,6 +79,7 @@
                 </tbody>
             </table>
         </div>
+        <div>Total Price: €@Model.TotalPrice</div>
     </div>
     @if ((TempData["ShowModal"]?.ToString() ?? "False") != "True")
     {

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using System.Numerics;
 
 namespace LunchList.Controllers
 {
@@ -41,18 +42,21 @@ namespace LunchList.Controllers
                 {
                     GroceryItem = gli.GroceryItem,
                     RetailerProduct = gli.GroceryItem.RetailerProduct,
+                    Price = gli.GroceryItem.RetailerProduct.PricePerProduct * gli.GroceryItem.Quantity
                 })
                 .ToListAsync();
+            
+            var totalListPrice = products.Sum(item => item.GroceryItem.RetailerProduct.PricePerProduct * item.GroceryItem.Quantity);
 
             var model = new GroceryListViewModel()
             {
                 Id = groceryList.Id,
                 Name = groceryList.Name,
                 GroceryListViewModelProducts = products,
+                TotalPrice = totalListPrice
             };
 
             return View(model);
-
         }
 
         [HttpPost]
