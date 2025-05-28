@@ -28,7 +28,7 @@ namespace LunchList.Controllers
             if (groceryList == null)
             {
                 TempData["ShowModal"] = true;
-                return View();
+                return View(new GroceryListViewModel());
             }
             
             
@@ -39,11 +39,8 @@ namespace LunchList.Controllers
                 .ThenInclude(gi => gi.RetailerProduct)
                 .Select(gli => new GroceryListViewModelProducts
                 {
-                    Id = gli.GroceryItem.Id,
-                    ProductName = gli.GroceryItem.RetailerProduct.Name,
-                    Price = gli.GroceryItem.RetailerProduct.Price,
-                    Quantity = gli.GroceryItem.Quantity,
-                    IsChecked = gli.GroceryItem.Quantity > 0,
+                    GroceryItem = gli.GroceryItem,
+                    RetailerProduct = gli.GroceryItem.RetailerProduct,
                 })
                 .ToListAsync();
 
@@ -61,8 +58,35 @@ namespace LunchList.Controllers
         [HttpPost]
         public async Task<IActionResult> SetDone(int? id)
         {
-            
-            TempData["ShowModal"] = true;
+            var groceryList = await _context.GroceryLists.FindAsync(id);
+            if (groceryList == null)
+            {
+                return NotFound();
+            }
+
+            groceryList.Is_Done = 1; 
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index"); 
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteItem(int? id)
+        {
+            var listItem = await _context.GroceryListItems
+                .Include(gli => gli.GroceryItem)
+                .FirstOrDefaultAsync(gli => gli.GroceryItemId == id);
+
+            if (listItem == null)
+            {
+                return NotFound();
+            }
+           
+            _context.GroceryItems.Remove(listItem.GroceryItem);
+            _context.GroceryListItems.Remove(listItem);
+
+            await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 

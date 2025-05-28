@@ -20,6 +20,7 @@ mono_crash.*
 
 # Build results
 /.idea
+/LunchList/Properties
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
