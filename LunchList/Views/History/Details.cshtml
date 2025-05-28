@@ -1,0 +1,75 @@
+﻿@using Microsoft.IdentityModel.Tokens
+@model GroceryListViewModel
+@{
+
+}
+<div class="container mt-4">
+
+    <!-- Modal for Adding Grocery List -->
+    <div class="modal fade" id="popupModal" tabindex="-1" aria-labelledby="popupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="popupModalLabel">Insert Your Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" asp-action="Add">
+                        <div class="mb-3">
+                            <label for="insertField" class="form-label">New List Name:</label>
+                            <input type="text" class="form-control" id="insertField" name="name" placeholder="Enter list name">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>@Model.Name</h2>
+
+    <!-- Grocery Items -->
+    <div class="card mt-4 shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title">
+                Grocery Items
+            </h4>
+
+            <table class="table table-hover mt-3">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Price Per</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Is Checked</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.GroceryListViewModelProducts)
+                    {
+                        <tr>
+                            <td>€@item.RetailerProduct.PricePerProduct</td>
+                            <td>@item.RetailerProduct.Name</td>
+                            <td>@item.GroceryItem.Quantity</td>
+                            <td>€@item.PriceFormatted</td>
+                            <td>
+                                <input type="checkbox" name="is_checked" value="1"
+                                @(item.GroceryItem.Is_Checked == 1 ? "checked" : "")
+                                       disabled />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div>
+                Total Price: €@Model.TotalPrice
+            </div>
+        </div>
+    </div>
+</div>
