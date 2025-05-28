@@ -23,7 +23,7 @@
             <td>@list.Id</td>
             <td>@list.Name</td>
             <td>@list.Created_At.ToString("yyyy-MM-dd")</td>
-            <td>
+            <td class="justify-content-center">
                 @if (list.Is_Done == 1)
                 {
                     <span class="badge bg-success">Yes</span>
@@ -33,7 +33,14 @@
                     <span class="badge bg-secondary">No</span>
                 }
             </td>
-            <td></td>
+            <td class="d-flex justify-content-center">
+                <form method="post" asp-controller="History" asp-action="Details">
+                    <input type="hidden" name="id" value="@list.Id">
+                    <button type="submit" class="btn btn-secondary btn-sm">
+                        <i class="bi bi-eye-fill"></i>
+                    </button>
+                </form>
+            </td>
         </tr>
     }
     </tbody>

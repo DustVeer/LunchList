@@ -48,6 +48,7 @@
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Is Checked</th>
+                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -65,12 +66,13 @@
                                        @(item.GroceryItem.Is_Checked == 1 ? "checked" : "")
                                        onchange="this.form.submit();" />
                             </form>
-                
+                        </td>
+                        <td>
                             <!-- Delete Button -->
                             <form method="post" asp-action="DeleteItem" style="display:inline; margin-left: 10px;">
                                 <input type="hidden" name="id" value="@item.GroceryItem.Id" />
                                 <button type="submit" class="btn btn-danger btn-sm">
-                                    <i class="fas fa-trash"></i>
+                                    <i class="bi bi-trash-fill"></i>
                                 </button>
                             </form>
                         </td>
@@ -78,8 +80,10 @@
                 }
                 </tbody>
             </table>
+            <div >
+                Total Price: €@Model.TotalPrice
+            </div>
         </div>
-        <div>Total Price: €@Model.TotalPrice</div>
     </div>
     @if ((TempData["ShowModal"]?.ToString() ?? "False") != "True")
     {
